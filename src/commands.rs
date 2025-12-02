@@ -61,6 +61,17 @@ pub fn remove(path: &Path, id_str: &str) -> Result<()> {
     Ok(())
 }
 
+pub fn change(path: &Path, id_str: &str, title: String, desc: Option<String>) -> Result<()> {
+    let mut data = storage::load_data(path)?;
+    let mut todo = ToDo::new(title);
+    todo.description = desc;
+    remove(path, id_str)?;
+    data.push(todo);
+    storage::save_data(path, &data)?;
+    println!("Changd todo");
+    Ok(())
+}
+
 pub fn clear(path: &Path) -> Result<()> {
     storage::save_data(path, &Vec::new())?;
     println!("Cleared all todos.");

@@ -30,6 +30,12 @@ enum Commands {
     Remove {
         id: String,
     },
+    Change {
+        id: String,
+        title: String,
+        #[arg(short, long)]
+        desc: Option<String>,
+    },
     Clear,
 }
 
@@ -42,6 +48,7 @@ fn main() -> Result<()> {
         Commands::List { all } => commands::list(&store_path, all)?,
         Commands::Done { id } => commands::done(&store_path, &id)?,
         Commands::Remove { id } => commands::remove(&store_path, &id)?,
+        Commands::Change { id, title, desc } => commands::change(&store_path, &id, title, desc)?,
         Commands::Clear => commands::clear(&store_path)?,
     }
 
