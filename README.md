@@ -8,4 +8,5 @@
 - list
 - done
 - remove
+- change (id) (new Name) (-d || --desc) (Description that is optional)
 - clear (removes all data)
