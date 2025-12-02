@@ -1,7 +1,7 @@
 # Instructions:
 
--cargo build
--cargo run -- (command)
+- cargo build
+- cargo run -- (command)
 
 # Commands:
 - add (Name) (-d || --desc) (Description that is optional)
